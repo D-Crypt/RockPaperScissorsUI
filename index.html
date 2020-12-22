@@ -16,15 +16,17 @@
         let playerScore = 0;
         let computerScore = 0;
 
-        rock.onclick = function () {
+        rock.addEventListener("click", function () {
             console.log(playRound(computerPlay(), "rock"));
-        };
-        paper.onclick = function () {
+        });
+
+        paper.addEventListener("click", function () {
             console.log(playRound(computerPlay(), "paper"));
-        };
-        scissors.onclick = function () {
+        });
+
+        scissors.addEventListener("click", function () {
             console.log(playRound(computerPlay(), "scissors"));
-        };
+        });
 
         //function userPlay() {}
 
