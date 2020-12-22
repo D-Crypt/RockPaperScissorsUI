@@ -5,28 +5,39 @@
 </head>
 
 <body>
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
+    <button data-choice="rock">Rock</button>
+    <button data-choice="paper">Paper</button>
+    <button data-choice="scissors">Scissors</button>
 
     <script>
-        const rock = document.querySelector('#rock');
-        const paper = document.querySelector('#paper');
-        const scissors = document.querySelector('#scissors');
+        //const rock = document.querySelector('#rock');
+        //const paper = document.querySelector('#paper');
+        //const scissors = document.querySelector('#scissors');
         let playerScore = 0;
         let computerScore = 0;
 
-        rock.addEventListener("click", function () {
+        const RPS = document.querySelectorAll("button");
+
+        RPS.forEach(function (button) {
+            button.addEventListener("click", function () {
+                console.log(playRound(computerPlay(), button.dataset.choice));
+            })
+        });
+
+        /*rock.addEventListener("click", function () {
             console.log(playRound(computerPlay(), "rock"));
+            checkScores();
         });
 
         paper.addEventListener("click", function () {
             console.log(playRound(computerPlay(), "paper"));
+            checkScores();
         });
 
         scissors.addEventListener("click", function () {
             console.log(playRound(computerPlay(), "scissors"));
-        });
+            checkScores();
+        });*/
 
         //function userPlay() {}
 
