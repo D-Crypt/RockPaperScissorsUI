@@ -15,14 +15,13 @@
         //const scissors = document.querySelector('#scissors');
         let playerScore = 0;
         let computerScore = 0;
-        let playerWin = false;
-        let computerWin = false;
         const RPS = document.querySelectorAll(".RPS");
 
         RPS.forEach(function (button) {
             button.addEventListener("click", function () {
                 console.log(playRound(computerPlay(), button.dataset.choice));
                 showScores();
+                checkScores();
             })
         });
 
@@ -69,10 +68,10 @@
         function checkScores() {
             if (playerScore >= 5) {
                 console.log("You win!");
-                playerWin = true;
+                disableButtons(RPS);
             } else if (computerScore >= 5) {
                 console.log("You lose.");
-                computerWin = true;
+                disableButtons(RPS);
             }
         }
 
@@ -92,7 +91,7 @@
                 if (computerSelection == "scissors") {
                     playerScore++;
                     return "You win! Rock beats scissors.";
-                } else if (computerSelection == "paper") {
+                } else {
                     computerScore++;
                     return "You lose! Paper beats rock.";
                 }
@@ -100,7 +99,7 @@
                 if (computerSelection == "rock") {
                     playerScore++;
                     return "You win! Paper beats rock."
-                } else if (computerSelection == "scissors") {
+                } else {
                     computerScore++;
                     return "You lose! Scissors beats paper.";
                 }
@@ -108,11 +107,11 @@
                 if (computerSelection == "paper") {
                     playerScore++;
                     return "You win! Scissors beats paper.";
-                } else if (computerSelection == "rock") {
+                } else {
                     computerScore++;
                     return "You lose! Rock beats scissors.";
                 }
-            } else return "You entered an invalid move."
+            }
         }
 
         function game() {
