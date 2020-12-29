@@ -15,6 +15,8 @@
         //const scissors = document.querySelector('#scissors');
         let playerScore = 0;
         let computerScore = 0;
+        let playerWin = false;
+        let computerWin = false;
         const RPS = document.querySelectorAll(".RPS");
 
         RPS.forEach(function (button) {
@@ -23,6 +25,12 @@
                 showScores();
             })
         });
+
+        function disableButtons(RPS) {
+            RPS.forEach(function (button) {
+                button.disabled = true;
+            });
+        }
 
         /*rock.addEventListener("click", function () {
             console.log(playRound(computerPlay(), "rock"));
@@ -59,15 +67,12 @@
         }
 
         function checkScores() {
-            let playerWin = false;
-            let computerWin = false;
-
-            if (playerScore >= 3) {
+            if (playerScore >= 5) {
                 console.log("You win!");
-                return playerWin = true;
-            } else if (computerScore >= 3) {
+                playerWin = true;
+            } else if (computerScore >= 5) {
                 console.log("You lose.");
-                return computerWin = true;
+                computerWin = true;
             }
         }
 
